@@ -17,7 +17,7 @@ public class AccountService {
 
     public Account getAccount(AccountRequest accountRequest, Long cardId) {
         Account account = accountRepository.find(accountRequest.getId());
-        Card card = cardService.find(cardId);
+        Card card = cardService.getCard(cardId);
         account.setCard(card);
         return doAccountMagic(account);
     }
