@@ -7,24 +7,28 @@ import ru.example.interf.domain.Amount;
 import ru.example.interf.domain.Card;
 import ru.example.interf.properties.AccountProperties;
 import ru.example.interf.repository.AccountRepository;
+import ru.example.interf.repository.domain.AccountEntity;
+
+import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 public class AccountService {
 
     private final CardService cardService;
     private final AccountRepository accountRepository;
-    private final AccountProperties accountProperties;
+    private final AmountConverter amountConverter;
 
     public Account getAccount(AccountRequest accountRequest, Long cardId) {
-        Account account = accountRepository.find(accountRequest.getId());
+        AccountEntity account = accountRepository.find(accountRequest.getId());
         Card card = cardService.getCard(cardId);
         account.setCard(card);
-        return doAccountMagic(account);
+        Stream
+        return amountConverter.apply(account);
     }
 
     /** some logic **/
-    private Account doAccountMagic(Account account) {
-        Amount specificAmount = account.getAmount();
+    private Account doAccountMagic(AccountEntity accountEntity) {
+        AmountEntity specificAmount = accountEntity.getAmount();
         specificAmount.setValue(
                 specificAmount.getValue() * accountProperties.getMagicBusinessValue()
         );
