@@ -1,4 +1,4 @@
-## Качество и SOLIDно
+## Как писать SOLIDно
 
 ![](./single-responsibility.png)
 
