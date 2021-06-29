@@ -1,5 +1,7 @@
 package ru.example.interf.service;
 
+import java.util.function.Function;
+
 import lombok.RequiredArgsConstructor;
 import ru.example.interf.domain.Account;
 import ru.example.interf.domain.AccountRequest;
@@ -12,7 +14,7 @@ public class AccountService {
 
     private final CardService cardService;
     private final AccountRepository accountRepository;
-    private final AccountConverter accountConverter;
+    private final Function<AccountEntity, Account> accountConverter;
 
     public Account getAccount(AccountRequest accountRequest, Long cardId) {
         AccountEntity accountEntity = accountRepository.find(accountRequest.getId());
