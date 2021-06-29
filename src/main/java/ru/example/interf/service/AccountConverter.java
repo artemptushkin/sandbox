@@ -10,7 +10,7 @@ import ru.example.interf.properties.AccountProperties;
 import ru.example.interf.repository.domain.AccountEntity;
 
 @RequiredArgsConstructor
-public class AmountConverter implements Function<AccountEntity, Account> {
+public class AccountConverter implements Function<AccountEntity, Account> {
 
     private final AccountProperties accountProperties;
 

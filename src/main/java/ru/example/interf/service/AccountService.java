@@ -12,12 +12,12 @@ public class AccountService {
 
     private final CardService cardService;
     private final AccountRepository accountRepository;
-    private final AmountConverter amountConverter;
+    private final AccountConverter accountConverter;
 
     public Account getAccount(AccountRequest accountRequest, Long cardId) {
         AccountEntity accountEntity = accountRepository.find(accountRequest.getId());
         Card card = cardService.getCard(cardId);
-        Account account = amountConverter.apply(accountEntity);
+        Account account = accountConverter.apply(accountEntity);
         account.setCard(card);
         return account;
     }
