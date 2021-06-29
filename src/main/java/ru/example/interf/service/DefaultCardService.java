@@ -6,12 +6,12 @@ import ru.example.interf.domain.CardSearchRequest;
 
 @RequiredArgsConstructor
 public class DefaultCardService implements CardService {
-    private final CardStorageService cardStorageService;
+    private final CardApi cardApi;
 
     @Override
     public Card getCard(Long cardId) {
         CardSearchRequest cardSearchRequest = createCardRequest(cardId);
-        return cardStorageService.findCard(cardSearchRequest);
+        return cardApi.findCard(cardSearchRequest);
     }
 
     private CardSearchRequest createCardRequest(Long cardId) {

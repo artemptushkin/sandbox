@@ -14,12 +14,12 @@ class DefaultCardServiceTest {
 
     CardService cardService;
 
-    CardStorageService cardStorageService;
+    CardApi cardApi;
 
     @BeforeEach
     void setUp() {
-        cardStorageService = mock(CardStorageService.class);
-        cardService = new DefaultCardService(cardStorageService);
+        cardApi = mock(CardApi.class);
+        cardService = new DefaultCardService(cardApi);
     }
 
     @Test
@@ -27,7 +27,7 @@ class DefaultCardServiceTest {
         Long id = 200L;
         Card expected = mock(Card.class);
         CardSearchRequest cardSearchRequest = prepareCardSearchRequest(id);
-        when(cardStorageService.findCard(eq(cardSearchRequest))).thenReturn(expected);
+        when(cardApi.findCard(eq(cardSearchRequest))).thenReturn(expected);
 
         Card actual = cardService.getCard(id);
 
