@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import ru.example.interf.domain.Card;
 import ru.example.interf.domain.CardSearchRequest;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Matchers.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -36,8 +35,9 @@ class DefaultCardServiceTest {
     }
 
     private CardSearchRequest prepareCardSearchRequest(Long id) {
-        CardSearchRequest cardSearchRequest = new CardSearchRequest();
-        cardSearchRequest.setId(id * 100);
-        return cardSearchRequest;
+        return CardSearchRequest
+                .builder()
+                .id(id * 100)
+                .build();
     }
 }

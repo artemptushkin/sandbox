@@ -1,8 +1,10 @@
 package ru.example.interf.domain;
 
-import lombok.Data;
+import lombok.Builder;
+import lombok.Value;
 
-@Data
+@Value
+@Builder
 public class Amount {
-    private Long value;
+    Long value;
 }
