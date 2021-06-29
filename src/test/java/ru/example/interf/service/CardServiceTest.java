@@ -10,24 +10,24 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class DefaultCardServiceTest {
+class CardServiceTest {
 
     CardService cardService;
 
-    CardStorageService cardStorageService;
+    CardApi cardApi;
 
     @BeforeEach
     void setUp() {
-        cardStorageService = mock(CardStorageService.class);
-        cardService = new DefaultCardService(cardStorageService);
+        cardApi = mock(CardApi.class);
+        cardService = new CardService(cardApi);
     }
 
     @Test
     void getCard() {
         Long id = 200L;
-        Card expected = mock(Card.class);
+        Card expected = Card.builder().build();
         CardSearchRequest cardSearchRequest = prepareCardSearchRequest(id);
-        when(cardStorageService.findCard(eq(cardSearchRequest))).thenReturn(expected);
+        when(cardApi.findCard(eq(cardSearchRequest))).thenReturn(expected);
 
         Card actual = cardService.getCard(id);
 

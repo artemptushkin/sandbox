@@ -1,4 +1,4 @@
-package ru.example.interf.domain;
+package ru.example.interf.repository.domain;
 
 import lombok.Data;
 

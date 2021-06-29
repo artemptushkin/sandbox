@@ -184,12 +184,12 @@ public class AccountConverter implements Function<AccountEntity, Account> {
 ```java
 @RequiredArgsConstructor
 public class DefaultCardService implements CardService {
-    private final CardStorageService cardStorageService;
+    private final CardStorageService cardApi;
 
     @Override
     public Card getCard(Long cardId) {
         CardSearchRequest cardSearchRequest = createCardRequest(cardId);
-        return cardStorageService.findCard(cardSearchRequest);
+        return cardApi.findCard(cardSearchRequest);
     }
 
     private CardSearchRequest createCardRequest(Long cardId) {
@@ -205,7 +205,7 @@ public class DefaultCardService implements CardService {
 ...
 Long id = 200L;
 Card expected = mock(Card.class);
-when(cardStorageService.findCard(any(CardSearchRequest.class))).thenReturn(expected);
+when(cardApi.findCard(any(CardSearchRequest.class))).thenReturn(expected);
 
 Card actual = cardService.getCard(id);
 
@@ -215,7 +215,7 @@ assertEquals(expected, actual);
 Но, например, если будут вызовы в цикле внутри метода `#getCard`, то данный стаб не подойдет - он даст одинаковое поведение для каждой итерации цикла.
 Кроме циклов есть и другие случаи, когда заглушка для **любых значений** подводит.
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;Чтобы имитировать конкретное поведение вида `when(cardStorageService.findCard(eq(cardSearchRequest)))` необходимо
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Чтобы имитировать конкретное поведение вида `when(cardApi.findCard(eq(cardSearchRequest)))` необходимо
 сделать заглушку созданного объекта `CardSearchRequest`.
 На практике создать такой stub может быть крайне сложно или даже невозможно (множество полей, значения которых берутся путем вызова множества _других_ методов _других_ классов).
 Более того, делать это будет не совсем правильно, так как в этом случае мы пишем заглушку, потому что мы знаем, как **сейчас работает код**.
