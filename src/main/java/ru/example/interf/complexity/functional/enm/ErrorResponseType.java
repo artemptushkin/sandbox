@@ -12,7 +12,6 @@ import static ru.example.interf.complexity.HttpStatus.NOT_FOUND;
 import static ru.example.interf.complexity.HttpStatus.NOT_IMPLEMENTED;
 
 @RequiredArgsConstructor
-
 enum ErrorResponseType implements Function<Exception, ResponseEntity> {
 	NOT_IMPLEMENTED_ERROR(NOT_IMPLEMENTED),
 	ENTITY_NOT_FOUND(NOT_FOUND),
