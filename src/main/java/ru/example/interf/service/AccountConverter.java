@@ -5,7 +5,7 @@ import java.util.function.Function;
 import lombok.RequiredArgsConstructor;
 import ru.example.interf.domain.Account;
 import ru.example.interf.domain.Amount;
-import ru.example.interf.domain.AmountEntity;
+import ru.example.interf.repository.domain.AmountEntity;
 import ru.example.interf.properties.AccountProperties;
 import ru.example.interf.repository.domain.AccountEntity;
 
