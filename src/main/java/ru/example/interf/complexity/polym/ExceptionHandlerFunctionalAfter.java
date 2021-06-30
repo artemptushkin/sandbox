@@ -1,4 +1,4 @@
-package ru.example.interf.complexity.functional;
+package ru.example.interf.complexity.polym;
 
 import java.util.Map;
 import java.util.function.Function;

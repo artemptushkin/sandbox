@@ -1,4 +1,4 @@
-package ru.example.interf.complexity.functional.iface;
+package ru.example.interf.complexity.polym.iface;
 
 import java.util.function.Function;
 

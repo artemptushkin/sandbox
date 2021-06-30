@@ -1,4 +1,4 @@
-package ru.example.interf.complexity.functional;
+package ru.example.interf.complexity.polym;
 
 import ru.example.interf.complexity.ArgumentMismatchException;
 import ru.example.interf.complexity.EntityNotFound;

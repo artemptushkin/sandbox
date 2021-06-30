@@ -1,4 +1,4 @@
-package ru.example.interf.complexity.functional.enm;
+package ru.example.interf.complexity.polym.enm;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -7,7 +7,7 @@ import ru.example.interf.complexity.ArgumentMismatchException;
 import ru.example.interf.complexity.EntityNotFound;
 import ru.example.interf.complexity.NotImplemented;
 import ru.example.interf.complexity.ResponseEntity;
-import ru.example.interf.complexity.functional.ExceptionHandlerFunctionalAfter;
+import ru.example.interf.complexity.polym.ExceptionHandlerFunctionalAfter;
 
 public class ExceptionHandlerFunctionalEnumConfiguration {
 

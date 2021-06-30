@@ -1,4 +1,4 @@
-package ru.example.interf.complexity.functional.enm;
+package ru.example.interf.complexity.polym.enm;
 
 import java.util.function.Function;
 
